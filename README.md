@@ -54,6 +54,11 @@ If you use a Raspberry Pi, thanks to [jancelin](https://github.com/jancelin), yo
    - [rtklibexplorer - PPP - for dual frequency receivers](https://rtklibexplorer.wordpress.com/2017/11/23/ppp-solutions-with-the-swiftnav-piksi-multi/)
    - [Centipede documentation (in french)](https://docs.centipede.fr/docs/base/positionnement.html)
 
+   For Quectel LC29HBS receivers, open a shell, and run the following to survey-in the device (averaging samples across 1 day), and display the base station coordinates:
+   ```bash
+   python3 tools/lc29h-bs_survey.py --mode survey --min-dur 86400 --speed 921600 /dev/ttyS0
+   ```
+
 + To help you find your base ip address, you can use the simple `find_rtkase` gui tool. It is available for Gnu/Linux and Windows in [./tools/find_rtkbase/dist](./tools/find_rtkbase/dist/).
   
    - Click on the "Find" button, wait, then click on the "Open" button. It will open the RTKBase GUI in your web browser.
