@@ -42,7 +42,7 @@ man_help(){
     echo ''
     echo '        -b | --rtkbase-release'
     echo '                         Get last release of RTKBase:'
-    echo '                         https://github.com/Stefal/rtkbase/releases'
+    echo '                         https://github.com/dborden0/rtkbase/releases'
     echo ''
     echo '        -i | --rtkbase-repo <branch>'
     echo '                         Clone RTKBASE from github with the <branch> parameter used to select the branch.'
@@ -205,9 +205,9 @@ _compil_rtklib() {
 _rtkbase_repo(){
     #Get rtkbase repository
     if [[ -n "${1}" ]]; then
-      sudo -u "${RTKBASE_USER}" git clone --branch "${1}" --single-branch https://github.com/stefal/rtkbase.git
+      sudo -u "${RTKBASE_USER}" git clone --branch "${1}" --single-branch https://github.com/dborden0/rtkbase.git
     else
-      sudo -u "${RTKBASE_USER}" git clone https://github.com/stefal/rtkbase.git
+      sudo -u "${RTKBASE_USER}" git clone https://github.com/dborden0/rtkbase.git
     fi
     _add_rtkbase_path_to_environment
 
@@ -215,7 +215,7 @@ _rtkbase_repo(){
 
 _rtkbase_release(){
     #Get rtkbase latest release
-    sudo -u "${RTKBASE_USER}" wget https://github.com/stefal/rtkbase/releases/latest/download/rtkbase.tar.gz -O rtkbase.tar.gz
+    sudo -u "${RTKBASE_USER}" wget https://github.com/dborden0/rtkbase/releases/latest/download/rtkbase.tar.gz -O rtkbase.tar.gz
     sudo -u "${RTKBASE_USER}" tar -xvf rtkbase.tar.gz
     _add_rtkbase_path_to_environment
 
@@ -359,7 +359,7 @@ rtkbase_requirements(){
       
       #Installing requirements for Cellular modem. Installing them during the Armbian firstrun doesn't work because the network isn't fully up.
       sudo -u "${RTKBASE_USER}" "${rtkbase_path}/venv/bin/python" -m pip install nmcli  --extra-index-url https://www.piwheels.org/simple
-      sudo -u "${RTKBASE_USER}" "${rtkbase_path}/venv/bin/python" -m pip install git+https://github.com/Stefal/sim-modem.git
+      sudo -u "${RTKBASE_USER}" "${rtkbase_path}/venv/bin/python" -m pip install git+https://github.com/dborden0/sim-modem.git
 
 }
 
